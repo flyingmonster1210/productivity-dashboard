@@ -12,16 +12,16 @@ function Layout () {
       <div className="header_wrap">
         <Header />
       </div>
-      <div className="layout_warp_project">
+      <div className="layout_wrap_project">
         {
           !isProjectPage &&
           <div className="project_side_menu_wrap">
             <LeftMenu />
           </div>
         }
-      </div>
-      <div className="project_warp">
-        <Outlet />
+        <div className="project_wrap">
+          <Outlet />
+        </div>
       </div>
     </div>
   )

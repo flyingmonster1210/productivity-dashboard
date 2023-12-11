@@ -9,7 +9,7 @@ import Epic from "./pages/Epic"
 
 function App () {
   return (
-    <div>
+    <div className='App'>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

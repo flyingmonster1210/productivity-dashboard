@@ -1,6 +1,86 @@
+.App {
+  width: 100%;
+  height: 100vh;
+}
+
 .layout_wrap {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
+}
+
+.header_wrap {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 60px;
+  margin: 2px;
+}
+
+.layout_wrap_project {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  border-right: 3px solid #f0f0f0;
+}
+
+.project_side_menu_wrap {
+  min-width: 200px;
+  height: 100%;
+}
+
+.project_wrap {
+  height: 100%;
+  flex: 1;
+  box-shadow: rgb(0 0 0 / 10%) -5px 0px 5px -5px;
+}
+
+.header_wrap_body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.button {
+  border: 0px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button.header_button {
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+  margin-right: 2px;
+}
+
+.button.popover_button {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.1rem;
+  font-weight: bold;
+  align-items: center;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  border-style: solid;
+  border-width: 3px 3px 3px 3px;
+  border-color: blue orange red green;
+  transform: rotate(45deg);
+  margin: 0 10px 0 0;
+}
+
+.arrow_down {
+  width: 5px;
+  height: 5px;
+  border-style: solid;
+  border-width: 0 0 2px 2px;
+  border-color: transparent transparent grey grey;
+  transform: rotate(-45deg);
+  margin-left: 4px;
 }
