@@ -46,6 +46,11 @@
   border: 0px;
   background-color: transparent;
   cursor: pointer;
+  border-radius: 0.6rem;
+}
+
+.button:hover {
+  background-color: rgb(251, 249, 246);
 }
 
 .button.header_button {
@@ -83,4 +88,29 @@
   border-color: transparent transparent grey grey;
   transform: rotate(-45deg);
   margin-left: 4px;
+}
+
+.table_wrap {
+  background-color: pink;
+}
+
+.project_body_wrap {
+  display: flex;
+  flex-direction: column;
+  margin: 1px;
+}
+
+.project_header_wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.project_selector_wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.max_width_30 {
+  max-width: 30%;
 }
