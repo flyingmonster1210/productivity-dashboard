@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Button, Checkbox, Input, Divider } from 'antd'
 
@@ -72,7 +71,10 @@ function Login () {
         </Form.Item>
 
         <Divider />
-        <Link to='/register' style={{ margin: 'auto' }}>Create New Account</Link>
+        <div style={{ margin: 'auto' }}>
+          Don't have an account?
+          <Link to='/register'> CREATE ONE.</Link>
+        </div>
       </Form>
     </div>
   )
