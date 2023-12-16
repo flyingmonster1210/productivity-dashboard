@@ -1,6 +1,7 @@
 import React from 'react'
 import ProjectTable from './components/ProjectTable'
 import { Select, Input } from 'antd'
+import CreateProjectModal from './components/CreateProjectModal'
 
 const handleChange = (value) => {
   console.log(`selected ${value}`)
@@ -36,7 +37,7 @@ function Project () {
     <div className='project_body_wrap'>
       <div className='project_header_wrap'>
         <h1>Project List</h1>
-        <button className='button'>New Project</button>
+        <CreateProjectModal />
       </div>
       <div className='project_selector_wrap'>
         <Input className='max_width_30' placeholder="Basic usage" />
