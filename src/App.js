@@ -4,7 +4,7 @@ import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Layout from "./pages/components/Layout"
 import Project from "./pages/Project"
-import DashBoad from "./pages/DashBoad"
+import DashBoad from "./pages/components/dashboard/DashBoard"
 import Epic from "./pages/Epic"
 
 function App () {

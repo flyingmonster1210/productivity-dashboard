@@ -3,13 +3,7 @@ import { Menu } from 'antd'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 function getItem (label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  }
+  return { key, icon, children, label, type, }
 }
 
 // submenu keys of first level
