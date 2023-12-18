@@ -1,0 +1,17 @@
+.dragboard_body_wrap {
+  /* display: flex;
+  flex-direction: column; */
+  margin: 0.5rem 0.5rem 0 0;
+  background: lightgray;
+}
+
+.dragboard_wrap {
+  display: flex;
+  flex-direction: row;
+}
+
+.task_col {
+  padding: 0 1rem;
+  margin-right: 1rem;
+  background: yellow;
+}
