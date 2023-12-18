@@ -6,7 +6,7 @@ function DashBoad () {
   return (
     <div className='dashboard_wrap'>
       <div>
-        <h2>DastBoard</h2>
+        <h2>DashBoard</h2>
       </div>
       <div>
         <Selector />

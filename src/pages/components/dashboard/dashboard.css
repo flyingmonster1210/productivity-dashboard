@@ -1,17 +1,20 @@
-.dragboard_body_wrap {
-  /* display: flex;
-  flex-direction: column; */
+.dragboard_wrap {
+  display: flex;
+  flex-direction: row;
   margin: 0.5rem 0.5rem 0 0;
   background: lightgray;
 }
 
-.dragboard_wrap {
-  display: flex;
-  flex-direction: row;
-}
-
-.task_col {
+.dragboard_column {
   padding: 0 1rem;
   margin-right: 1rem;
   background: yellow;
+}
+
+.task_item {
+  font-size: small;
+  padding: 0 0.6rem;
+  margin: 0.2rem 0;
+  border-color: black;
+  border-style: solid;
 }
