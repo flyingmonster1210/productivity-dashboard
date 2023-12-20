@@ -1,5 +1,5 @@
 import Selector from './Selector'
-import DragBoard from './DragBoard'
+import ColumnsInBoard from './ColumnsInBoard'
 
 
 function DashBoad () {
@@ -12,7 +12,7 @@ function DashBoad () {
         <Selector />
       </div>
       <div>
-        <DragBoard />
+        <ColumnsInBoard />
       </div>
     </div>
   )
