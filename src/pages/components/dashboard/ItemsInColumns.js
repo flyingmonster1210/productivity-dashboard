@@ -1,10 +1,10 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 
-function ItemsInColumns ({ column }) {
+function ItemsInColumns ({ column, index: colIndex }) {
   const { id: colId, tasks } = column
 
   return (
-    <Droppable direction='vertical' droppableId={`column-${colId}`} type='item'>
+    <Droppable direction='vertical' droppableId={colIndex} type='item'>
       {(provided) => (
         <div
           ref={provided.innerRef}
@@ -12,7 +12,7 @@ function ItemsInColumns ({ column }) {
         >
           {tasks.map((task, index) => (
             <Draggable
-              key={`${colId}-${task.id}`}
+              key={`column-${colId}-task-${task.id}`}
               draggableId={`${colId}-${task.id}`}
               index={index}
               type='column'
@@ -24,7 +24,7 @@ function ItemsInColumns ({ column }) {
                   {...provided.dragHandleProps}
                   className='task_item'
                 >
-                  <h2>{task.content}</h2>
+                  <h2>{task.name}</h2>
                 </div>
               )
               }
