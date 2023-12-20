@@ -12,7 +12,7 @@ function ItemsInColumns ({ column, index: colIndex }) {
         >
           {tasks.map((task, index) => (
             <Draggable
-              key={`column-${colId}-task-${task.id}`}
+              key={`task-${task.id}-${index}`}
               draggableId={`${colId}-${task.id}`}
               index={index}
               type='column'

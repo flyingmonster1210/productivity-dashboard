@@ -1,5 +1,6 @@
 import { Draggable, Droppable, DragDropContext } from 'react-beautiful-dnd'
 import TaskDrop from './ItemsInColumns'
+import { Input } from 'antd'
 import './dashboard.css'
 import { useState } from 'react'
 
@@ -53,7 +54,7 @@ const changeItem = (src, des, data, setData) => {
 }
 
 const handleDragEnd = (result, data, setData) => {
-  // console.log('result:', result)
+  console.log('result:', result)
 
   const { source: src, destination: des, type } = result
   if (!des || !src) return
