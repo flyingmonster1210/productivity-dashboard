@@ -34,18 +34,44 @@ const initialState = {
   ],
 }
 
+const changeColumnOrder = (src, des, data) => {
+  const newList = data.filter((_, index) => index !== src.index)
+  newList.splice(des.index, 0, data[src.index])
+  return newList
+}
+
+const changeTaskItemOrder = (src, des, data) => {
+  const { droppableId: desId, index: desItemIndex } = des
+  const { droppableId: srcId, index: srcItemIndex } = src
+  const desColId = Number(desId)
+  const srcColId = Number(srcId)
+
+  const newData = [...data]
+  if (srcColId !== desColId) {
+    newData[desColId].tasks.splice(desItemIndex, 0, newData[srcColId].tasks[srcItemIndex])
+    newData[srcColId].tasks.splice(srcItemIndex, 1)
+  }
+  else {
+    const newTasks = newData[srcColId].tasks.filter((_, index) => index !== srcItemIndex)
+    newTasks.splice(desItemIndex, 0, data[srcColId].tasks[srcItemIndex])
+    newData[srcColId].tasks = newTasks
+  }
+
+  return newData
+  // console.log(newData)
+}
+
 export const DropSlice = createSlice({
   name: 'drop',
   initialState,
   reducers: {
     change_column_order: (state, actions) => {
-
+      const { source: src, destination: des } = actions.payload
+      state.dataList = changeColumnOrder(src, des, state.dataList)
     },
-    change_taskSame_order: (state, actions) => {
-
-    },
-    change_taskDiff_order: (state, actions) => {
-
+    change_taskItem_order: (state, actions) => {
+      const { source: src, destination: des } = actions.payload
+      state.dataList = changeTaskItemOrder(src, des, state.dataList)
     },
     add_new_column: (state, actions) => {
 
@@ -56,7 +82,7 @@ export const DropSlice = createSlice({
   }
 })
 
-export const { } = DropSlice.actions
+export const { change_column_order, change_taskItem_order, add_new_column, add_new_task } = DropSlice.actions
 export const selectDrop = (state) => state.drop.dataList
 export default DropSlice.reducer
 
