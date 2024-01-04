@@ -9,6 +9,7 @@ function ItemsInColumns ({ column, index: colIndex }) {
         <div
           ref={provided.innerRef}
           {...provided.droppableProps}
+          className='tasks_list'
         >
           {tasks.map((task, index) => (
             <Draggable

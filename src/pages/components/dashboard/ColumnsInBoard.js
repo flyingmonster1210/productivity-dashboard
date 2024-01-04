@@ -1,38 +1,41 @@
 import { Draggable, Droppable, DragDropContext } from 'react-beautiful-dnd'
-import TaskDrop from './ItemsInColumns'
+import ItemsInColumns from './ItemsInColumns'
 import { Input } from 'antd'
-import './dashboard.css'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectDrop } from '../../../redux/slice/drop'
 
-const dataList = [
-  {
-    id: '04123aa',
-    columnName: 'To do',
-    tasks: [
-      { id: '1234d0', name: '1', content: 'To do0' },
-      { id: 'as2331', name: '2', content: 'To do1' },
-      { id: 'ad3322', name: '3', content: 'To do2' },
-    ],
-  },
-  {
-    id: '19037841',
-    columnName: 'Doing',
-    tasks: [
-      { id: '0393ba0', name: '4', content: 'Doing0' },
-      { id: 'a2220b1', name: '5', content: 'Doing1' },
-      { id: '2ab3294', name: '6', content: 'Doing2' },
-    ],
-  },
-  {
-    id: '2000927',
-    columnName: 'Done',
-    tasks: [
-      { id: '09384ab7', name: '7', content: 'Done0' },
-      { id: '1739347a', name: '8', content: 'Done1' },
-      { id: '2ab67393', name: '9', content: 'Done2' },
-    ],
-  },
-]
+// const dataList = [
+//   {
+//     id: '04123aa',
+//     columnName: 'To do',
+//     tasks: [
+//       { id: '1234d0', name: '1', content: 'To do0' },
+//       { id: 'as2331', name: '2', content: 'To do1' },
+//     ],
+//   },
+//   {
+//     id: '19037841',
+//     columnName: 'Doing',
+//     tasks: [
+//       { id: '5ad3322', name: '3', content: 'Doing-1' },
+//       { id: '0393ba0', name: '4', content: 'Doing0' },
+//       { id: 'a2220b1', name: '5', content: 'Doing1' },
+//       { id: '2ab3294', name: '6', content: 'Doing2' },
+//     ],
+//   },
+//   {
+//     id: '2000927',
+//     columnName: 'Done',
+//     tasks: [
+//       { id: '09384ab7', name: '7', content: 'Done0' },
+//       { id: '1739347a', name: '8', content: 'Done1' },
+//       { id: '2ab67393', name: '9', content: 'Done2' },
+//       { id: '2ab63453', name: '10', content: 'Done3' },
+//       { id: 'b6733393', name: '11', content: 'Done4' },
+//     ],
+//   },
+// ]
 
 const changeColumn = (src, des, data, setData) => {
   const newList = data.filter((_, index) => index !== src.index)
@@ -75,21 +78,25 @@ const handleDragEnd = (result, data, setData) => {
       changeItem(src, des, data, setData)
       break
     default:
+      console.error(type)
       break
   }
 }
 
 function ColumnsInBoard () {
-  const [data, setData] = useState(dataList)
+  const data = useSelector(selectDrop)
+  // const [data, setData] = useState(dataList)
 
   return (
-    <DragDropContext onDragEnd={(result) => handleDragEnd(result, data, setData)}>
+    <DragDropContext
+    // onDragEnd={(result) => handleDragEnd(result, data, setData)}
+    >
       <Droppable direction='horizontal' droppableId='dragboard' type='column'>
         {(provided) => (
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className='dragboard_wrap'
+            className='task-table'
           >
             {data.map((column, index) => (
               <Draggable
@@ -103,16 +110,17 @@ function ColumnsInBoard () {
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
-                    className='dragboard_column'
+                    className='task-table_column'
                   >
                     <h2>{column.columnName}</h2>
-                    <TaskDrop column={column} index={`${index}`} />
+                    <ItemsInColumns column={column} index={`${index}`} />
+
+                    <Input placeholder="Basic usage" />
                   </div>
                 )
                 }
               </Draggable>
-            )
-            )}
+            ))}
             {provided.placeholder}
           </div>
         )}
