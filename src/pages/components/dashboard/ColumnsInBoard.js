@@ -6,6 +6,7 @@ import { change_column_order, change_taskItem_order, selectDrop } from '../../..
 
 const handleDragEnd = (result, dispatch) => {
   // console.log('result:', [result.source.index, result.destination.index])
+  if (!result.destination) return
 
   const { source: src, destination: des, type } = result
   if (!des || !src) return

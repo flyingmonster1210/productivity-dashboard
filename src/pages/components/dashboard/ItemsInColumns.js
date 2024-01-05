@@ -27,11 +27,9 @@ function ItemsInColumns ({ column, index: colIndex }) {
                 >
                   <h2>{task.name}</h2>
                 </div>
-              )
-              }
+              )}
             </Draggable>
-          )
-          )}
+          ))}
           {provided.placeholder}
         </div>
       )}
